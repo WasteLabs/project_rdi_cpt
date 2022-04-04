@@ -3,9 +3,11 @@
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
 
+# POPULATION AND HOUSEHOLD DATA
+
 cape_town_geojson:
   type: kedro.extras.datasets.geopandas.GeoJSONDataSet
-  filepath: data/01_raw/geoshapes/CapeTown_GeoJSON_WGS84.geojson
+  filepath: data/01_raw/areas/CapeTown_GeoJSON_WGS84.geojson
   layer: raw
 
 gap_zones:
@@ -19,29 +21,22 @@ households:
   layer: raw
   load_args:
       compression: gzip
-      
+  
+population:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/synthetic_populations/population.csv.gz
+  layer: raw
+  load_args:
+      compression: gzip
+
 households_geojson:
   type: kedro.extras.datasets.geopandas.GeoJSONDataSet
   filepath: data/02_intermediate/synthetic_populations/households.geojson
   layer: intermediate
-      
-households:
+
+waste_demand_estimate:
   type: pandas.CSVDataSet
-  filepath: data/01_raw/synthetic_populations/households.csv.gz
-  layer: raw
-  load_args:
-      compression: gzip
-  
-population:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/synthetic_populations/households.csv.gz
-  layer: raw
-  load_args:
-      compression: gzip
-  
-waste_generation:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/demand_estimates/waste_demand_estimate_test.csv
+  filepath: data/01_raw/demand_estimates/households.csv
   layer: raw
   load_args:
     compression: gzip
@@ -49,4 +44,51 @@ waste_generation:
 population_sample:
   type: kedro.extras.datasets.geopandas.GeoJSONDataSet
   filepath: data/02_intermediate/synthetic_populations_test/households.geojson
+  layer: intermediate
+  
+# ROAD NETWORK DATA
+
+road_network_full_24645:
+  type: kedro.extras.datasets.networkx.NetworkXDataSet
+  filepath: data/02_intermediate/road_network/road_network_full_24645.json
+  layer: intermediate
+  
+road_network_full_24645_nodes:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/road_network_nodes/road_network_full_24645.geojson
+  layer: intermediate
+  
+road_network_full_24645_edges:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/road_network_edges/road_network_full_24645.geojson
+  layer: intermediate
+  
+road_network_full_24645_nodes_xy:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/road_network_nodes_xy/road_network_full_24645.geojson
+  layer: intermediate
+  
+road_network_full_24645_edges_xy:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/road_network_edges_xy/road_network_full_24645.geojson
+  layer: intermediate
+
+road_network_simplified_24645_nodes:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/road_network_nodes/road_network_simplified_24645.geojson
+  layer: intermediate
+  
+road_network_simplified_24645_edges:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/road_network_edges/road_network_simplified_24645.geojson
+  layer: intermediate
+  
+road_network_simplified_24645_nodes_xy:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/road_network_nodes_xy/road_network_simplified_24645.geojson
+  layer: intermediate
+  
+road_network_simplified_24645_edges_xy:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/road_network_edges_xy/road_network_simplified_24645.geojson
   layer: intermediate
