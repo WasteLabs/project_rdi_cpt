@@ -1,0 +1,52 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
+
+cape_town_geojson:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/01_raw/geoshapes/CapeTown_GeoJSON_WGS84.geojson
+  layer: raw
+
+gap_zones:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/01_raw/areas/CapeTown_GAP2018v2_WGS84.geojson
+  layer: raw
+
+households:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/synthetic_populations/households.csv.gz
+  layer: raw
+  load_args:
+      compression: gzip
+      
+households_geojson:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/synthetic_populations/households.geojson
+  layer: intermediate
+      
+households:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/synthetic_populations/households.csv.gz
+  layer: raw
+  load_args:
+      compression: gzip
+  
+population:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/synthetic_populations/households.csv.gz
+  layer: raw
+  load_args:
+      compression: gzip
+  
+waste_generation:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/demand_estimates/waste_demand_estimate_test.csv
+  layer: raw
+  load_args:
+    compression: gzip
+    
+population_sample:
+  type: kedro.extras.datasets.geopandas.GeoJSONDataSet
+  filepath: data/02_intermediate/synthetic_populations_test/households.geojson
+  layer: intermediate
