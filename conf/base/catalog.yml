@@ -92,3 +92,13 @@ road_network_simplified_24645_edges_xy:
   type: kedro.extras.datasets.geopandas.GeoJSONDataSet
   filepath: data/02_intermediate/road_network_edges_xy/road_network_simplified_24645.geojson
   layer: intermediate
+
+road_network_simplified_24645_edges_directed:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/road_network_edges_directed/road_network_simplified_24645.csv
+  layer: intermediate
+
+road_network_simplified_24645_edges_xy_directed:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/road_network_edges_xy_directed/road_network_simplified_24645.csv
+  layer: intermediate
