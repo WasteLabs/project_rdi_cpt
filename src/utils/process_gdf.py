@@ -122,7 +122,7 @@ def update_inverse_id(df,
 def process_edges(df, add_arc_key=True):
     """Process OSM edges by assigning inverse geom-ids.
 
-    Args:
+    Args:`
         df <pd.DataFrame>: data-frame with geometry column. Doesn't have
             to be a geodataframe object.
         add_arc_key (bool): add arc key, useful when working with projected xy
