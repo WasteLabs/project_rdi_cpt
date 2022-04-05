@@ -1,0 +1,34 @@
+epsg_project: EPSG:2055
+
+infrastructure:
+ - description: Depot 1
+   type: depot
+   lat: -34.002943
+   lon: 18.499455
+   id: depot1
+   category: depot
+ - description: Depot 2
+   type: depot
+   lat: -33.985705
+   lon: 18.431765
+   id: depot2
+   category: depot
+ - description: Offload 1
+   type: waste_treatment
+   lat: -33.958541
+   lon: 18.457144
+   id: offload1
+   category: waste_treatment
+ - description: Offload 2
+   type: waste_treatment
+   lat: -34.009406
+   lon: 18.456653
+   id: offload2
+   category: waste_treatment
+ - description: Offload 3
+   type: waste_treatment
+   lat: -33.984812
+   lon: 18.467095
+   id: offload3
+   category: waste_treatment
+    
