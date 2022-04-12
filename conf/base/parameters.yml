@@ -3,14 +3,14 @@ epsg_project: EPSG:2055
 infrastructure:
  - description: Depot 1
    type: depot
-   lat: -34.002943
-   lon: 18.499455
+   lat: -33.979121
+   lon: 18.445449
    id: depot1
    category: depot
  - description: Depot 2
    type: depot
-   lat: -33.985705
-   lon: 18.431765
+   lat: -33.966018
+   lon: 18.461088
    id: depot2
    category: depot
  - description: Offload 1

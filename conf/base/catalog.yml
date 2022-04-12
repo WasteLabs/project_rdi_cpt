@@ -38,8 +38,6 @@ waste_demand_estimate:
   type: pandas.CSVDataSet
   filepath: data/01_raw/demand_estimates/households.csv
   layer: raw
-  load_args:
-    compression: gzip
     
 population_sample:
   type: kedro.extras.datasets.geopandas.GeoJSONDataSet
@@ -114,3 +112,13 @@ infrastructure_sample_network_match:
   type: pandas.CSVDataSet
   filepath: data/05_model_input/infrastructure_sample_network_match.csv
   layer: model_input
+  
+# ROUTING PARAMETERS
+
+routing_parameters:
+  type: kedro.extras.datasets.pandas.ExcelDataSet
+  filepath: data/01_raw/routing_parameters/refuse_parameters.xlsx
+  layer: raw
+  load_args:
+    engine: openpyxl 
+      
