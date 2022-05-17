@@ -122,3 +122,41 @@ routing_parameters:
   load_args:
     engine: openpyxl 
       
+# SCENARIO FILES
+
+waste_gen_scenarios:
+  type: PartitionedDataSet
+  dataset: pandas.CSVDataSet
+  path: s3://project-rdi-cpt-public/data/01_raw/waste_generation_scenarios/cpt/
+  filename_suffix: ".csv.gz"
+  load_args:
+      compression: gzip
+  layer: raw_input
+  
+  
+waste_gen_scenarios_local:
+  type: PartitionedDataSet
+  dataset: pandas.CSVDataSet
+  path: data/01_raw/waste_generation_scenarios/cpt/
+  filename_suffix: ".csv"
+  layer: raw_input
+
+
+syn_pop_scenarios:
+  type: PartitionedDataSet
+  dataset: pandas.CSVDataSet
+  path: s3://project-rdi-cpt-public/data/01_raw/synthetic_populations/cpt/
+  filename_suffix: ".csv.gz"
+  load_args:
+      compression: gzip
+  layer: raw_input
+  credentials: dev_s3
+  
+  
+syn_pop_scenarios_local:
+  type: PartitionedDataSet
+  dataset: pandas.CSVDataSet
+  path: data/01_raw/synthetic_populations/cpt/
+  filename_suffix: ".csv"
+  layer: raw_input
+  credentials: dev_s3
