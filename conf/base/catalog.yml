@@ -127,11 +127,10 @@ routing_parameters:
 waste_gen_scenarios:
   type: PartitionedDataSet
   dataset: pandas.CSVDataSet
-  path: s3://project-rdi-cpt-public/data/01_raw/waste_generation_scenarios/cpt/
-  filename_suffix: ".csv.gz"
-  load_args:
-      compression: gzip
+  path: s3://project-rdi-cpt-public/data/01_raw/waste_generation_scenarios/cpt-20220518/
+  filename_suffix: ".csv"
   layer: raw_input
+  credentials: dev_s3
   
   
 waste_gen_scenarios_local:
@@ -140,15 +139,14 @@ waste_gen_scenarios_local:
   path: data/01_raw/waste_generation_scenarios/cpt/
   filename_suffix: ".csv"
   layer: raw_input
+  credentials: dev_s3
 
 
 syn_pop_scenarios:
   type: PartitionedDataSet
   dataset: pandas.CSVDataSet
-  path: s3://project-rdi-cpt-public/data/01_raw/synthetic_populations/cpt/
-  filename_suffix: ".csv.gz"
-  load_args:
-      compression: gzip
+  path: s3://project-rdi-cpt-public/data/01_raw/synthetic_populations/cpt-20220518/
+  filename_suffix: ".csv"
   layer: raw_input
   credentials: dev_s3
   
@@ -160,3 +158,17 @@ syn_pop_scenarios_local:
   filename_suffix: ".csv"
   layer: raw_input
   credentials: dev_s3
+  
+## Lat-lon key files
+
+syn_pop_lat_lon_ids:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/syn_pop_lat_lon_ids.csv
+  layer: intermediate
+  credentials: dev_s3
+
+
+lat_lon_key_network_match:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/lat_lon_key_network_match.csv
+  layer: primary
