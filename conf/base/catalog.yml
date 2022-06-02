@@ -172,3 +172,21 @@ lat_lon_key_network_match:
   type: pandas.CSVDataSet
   filepath: data/03_primary/lat_lon_key_network_match.csv
   layer: primary
+
+## Model output
+
+resource_summary_table:
+  type: PartitionedDataSet
+  dataset: pandas.CSVDataSet
+  path: data/07_model_output/resource_summary_table/cpt/
+  filename_suffix: ".csv"
+  layer: model_output
+  credentials: dev_s3
+  
+## Reporting
+
+resource_scenario_results:
+  type: pandas.CSVDataSet
+  filepath: s3://project-rdi-cpt-public/data/08_reporting/resource_scenario_results.csv
+  layer: model_output
+  credentials: dev_s3
